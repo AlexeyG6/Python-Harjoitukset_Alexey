@@ -1,5 +1,6 @@
 luvut = []
 
+
 while True:
     luku = str(input("Anna luku:"))
     if luku == "":
@@ -7,5 +8,6 @@ while True:
     luku = float(luku)
     luvut.append(int(luku))
 
-for s in luvut:
-    print(s)
+for luku in luvut:
+    print(max(luvut))
+    luvut.remove(max(luvut))
