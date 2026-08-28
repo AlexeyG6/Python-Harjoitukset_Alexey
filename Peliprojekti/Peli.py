@@ -1,3 +1,5 @@
+
+print("OVERDRIVE")
 nimi = input("Anna pelaajan nimi: ")
 ikä = int(input("Anna pelaajan ikä: "))
 print (nimi, ikä)
@@ -7,12 +9,12 @@ if ikä < 12:
     exit()
 
 while True:
-    vastaus = input("---------------------- \nTervetuloa peliin! \nToiminnot: \nMinun nimi(nimi) \nMinun Ikä(ikä) \n(Lopeta) \nValitse toiminto: ")
+    vastaus = input("---------------------- \nOVERDRIVE \nTervetuloa peliin! \nToiminnot: \nMinun nimi(nimi) \nMinun Ikä(ikä) \n(Lopeta) \nValitse toiminto: ")
 
 
     if vastaus == "Lopeta":
         break
-    elif vastaus == "\nnimi":
-        print("Pelaajan nimi on:", nimi)
-    elif vastaus == "\nIkä":
-        print("Pelaajan ikä on:", ikä)
+    elif vastaus == "nimi":
+        print("\nPelaajan nimi on:", nimi)
+    elif vastaus == "ikä":
+        print("\nPelaajan ikä on:", ikä)
