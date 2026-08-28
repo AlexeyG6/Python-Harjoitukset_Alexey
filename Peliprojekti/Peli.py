@@ -7,6 +7,12 @@ if ikä < 12:
     exit()
 
 while True:
-    vastaus = input("Tervetuloa peliin! (Lopeta) ")
+    vastaus = input("---------------------- \nTervetuloa peliin! \nToiminnot: \nMinun nimi(nimi) \nMinun Ikä(ikä) \n(Lopeta) \nValitse toiminto: ")
+
+
     if vastaus == "Lopeta":
         break
+    elif vastaus == "\nnimi":
+        print("Pelaajan nimi on:", nimi)
+    elif vastaus == "\nIkä":
+        print("Pelaajan ikä on:", ikä)
