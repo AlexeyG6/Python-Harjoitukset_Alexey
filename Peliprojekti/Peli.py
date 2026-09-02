@@ -1,9 +1,8 @@
 
+
 def Peli():
+    exit()
     
-    while True:
-        print("")
-        break 
 
 
 
@@ -28,6 +27,7 @@ while True: #Ohjelma kirjoittaa pelin toiminnot ja kysyy pelaajalta mitä hän h
         print("\nPelaajan ikä on:", ikä)
     elif vastaus == "Aloita": #Peli alkaa
         print("\nPeli alkaa!")
-        Peli()
+        break
 
 
+Peli() #Kutsutaan Peli funktiota, joka luo pelin ikkunan
