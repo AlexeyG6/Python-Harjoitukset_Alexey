@@ -1,4 +1,11 @@
 
+def Peli():
+    
+    while True:
+        print("")
+        break 
+
+
 
 print("OVERDRIVE") #Printataan Pelin nimi
 nimi = input("Anna pelaajan nimi: ") #Kysytään pelaajan nimeä
@@ -24,7 +31,3 @@ while True: #Ohjelma kirjoittaa pelin toiminnot ja kysyy pelaajalta mitä hän h
         Peli()
 
 
-def Peli():
-    
-    while True:
-        print
