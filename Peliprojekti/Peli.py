@@ -11,15 +11,23 @@ def lisää_esine():
     inventaario.append(esine)
     print(f"{esine} on lisätty inventaarioon.")
 
+def poista_esine(esine):
+    if esine in inventaario:
+        inventaario.remove(esine)
+        print(f"heitit {esine} pois")
+
 def Peli():
     while True: 
-        Toiminto = input("Toiminnot: \n1. Lisää esine inventaarioon \n2. Tarkista inventaario \n3. Lopeta \nValitse toiminto: ")
+        Toiminto = input("Toiminnot: \n1. Lisää esine inventaarioon \n2. Tarkista inventaario \n3. Heitä esine pois \n4. Lopeta \nValitse toiminto: ")
 
         if Toiminto == "1":
             lisää_esine()
         elif Toiminto == "2":
             print("Inventaario:", inventaario)
         elif Toiminto == "3":
+            esine = input("Minkä esineen haluat heittää pois?:")
+            poista_esine(esine)
+        elif Toiminto == "4":
             exit()
 
 print("OVERDRIVE") #Printataan Pelin nimi
