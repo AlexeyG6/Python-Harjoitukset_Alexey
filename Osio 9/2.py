@@ -6,7 +6,7 @@ class Auto:
         self.nopeus = 0
         self.matka = 0
 
-    def kiihdytä(self, maara):
+    def kiihdyta(self, maara):
         self.nopeus += maara
         if self.nopeus > self.huippu_nopeus:
             self.nopeus = self.huippu_nopeus
@@ -16,8 +16,8 @@ class Auto:
 
 auto = Auto()
 
-auto.kiihdytä(30)
-auto.kiihdytä(50)
-auto.kiihdytä(70)
+auto.kiihdyta(30)
+auto.kiihdyta(50)
+auto.kiihdyta(70)
 
 print(f"Auton rekisterinumero: {auto.rekkari}, Huippunopeus: {auto.huippu_nopeus}km/h, Nykyinen nopeus: {auto.nopeus}km/h, Matka: {auto.matka}km")

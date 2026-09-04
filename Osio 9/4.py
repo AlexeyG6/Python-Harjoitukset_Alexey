@@ -6,7 +6,7 @@ class Auto:
         self.nopeus = 0
         self.matka = 0
 
-    def kiihdytä(self, maara):
+    def kiihdyta(self, maara):
         self.nopeus += maara
         if self.nopeus > self.huippu_nopeus:
             self.nopeus = self.huippu_nopeus
@@ -18,9 +18,9 @@ class Auto:
 
 auto = Auto()
 
-auto.kiihdytä(30)
-auto.kiihdytä(50)
-auto.kiihdytä(70)
+auto.kiihdyta(30)
+auto.kiihdyta(50)
+auto.kiihdyta(70)
 
 auto.kulje(1.5)
 
