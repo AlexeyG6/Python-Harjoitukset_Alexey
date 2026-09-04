@@ -2,11 +2,11 @@ import random
 
 
 class Auto:
-    def __init__(self, rekkari, huippunopeus):
+    def __init__(self, rekkari, huippunopeus, nopeus = 0, matka = 0):
         self.rekkari = rekkari
         self.huippu_nopeus = huippunopeus
-        self.nopeus = 0
-        self.matka = 0
+        self.nopeus = nopeus
+        self.matka = matka
 
     def kiihdyta(self, maara):
         self.nopeus += maara
