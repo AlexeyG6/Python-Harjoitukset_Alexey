@@ -1,11 +1,16 @@
 tunnus = ("python")
 salasana = ("rules")
 
-while True:
+yritykset = 0
+
+while yritykset != 5:
+    yritykset += 1
     k = input("Anna tunnus: ")
     s = input("Anna salasana: ")
     if k == tunnus and s == salasana:
         print("Tervetuloa!")
-        break
-    else:
-        print("Pääsy evätty")
+        break   
+    print("--------------")
+
+if yritykset >= 5:
+    print("Pääsy evätty.")
