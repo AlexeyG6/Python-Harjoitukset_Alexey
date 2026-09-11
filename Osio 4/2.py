@@ -1,6 +1,6 @@
-luokka = input("Anna laivan hyyttyluokka (Lux, A, B, C): ")
+luokka = input("Anna laivan hyyttyluokka (LUX, A, B, C): ").upper()
 
-if luokka == "Lux":
+if luokka == "LUX":
     print("LUX on parvekkeellinen hytti yläkannella.")
 elif luokka == "A":
     print("A on ikkunallinen hytti autokannen yläpuolella.")

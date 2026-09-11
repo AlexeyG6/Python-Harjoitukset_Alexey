@@ -1,19 +1,21 @@
-sukupuoli = input("Anna biologinen sukupoulisi (Mies, Nainen): ")
+sukupuoli = input("Anna biologinen sukupoulisi (Mies, Nainen): ").lower
 
-hemoglobini = float(input("Anna hemoglobiiniarvosi (g/l): "))
+hemoglobiini = float(input("Anna hemoglobiiniarvosi (g/l): "))
 
-if sukupuoli == "Mies":
-    if hemoglobini <= 134:
+if sukupuoli == "mies":
+    if hemoglobiini <= 134:
         print("Hemoglobiiniarvosi on alhainen.")
-    elif hemoglobini >= 195:
+    elif hemoglobiini >= 195:
         print("Hemoglobiiniarvosi on korkea.")
     else:
         print("Hemoglobiiniarvosi on normaali.")
 
-elif sukupuoli == "Nainen":
-    if hemoglobini <= 117:
+elif sukupuoli == "nainen":
+    if hemoglobiini <= 117:
         print("Hemoglobiiniarvosi on alhainen.")
-    elif hemoglobini >= 175:
+    elif hemoglobiini >= 175:
         print("Hemoglobiiniarvosi on korkea.")
     else:
         print("Hemoglobiiniarvosi on normaali.")
+else:
+    print("Virheellinen syöte.")
