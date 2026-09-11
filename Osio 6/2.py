@@ -1,6 +1,5 @@
 luvut = []
 
-
 while True:
     luku = str(input("Anna luku:"))
     if luku == "":
@@ -8,6 +7,10 @@ while True:
     luku = float(luku)
     luvut.append(int(luku))
 
-for luku in luvut:
+luvut.sort(reverse=True)
+
+viisi_suurinta = luvut[:5]
+
+for luku in viisi_suurinta:
     print(max(luvut))
     luvut.remove(max(luvut))
