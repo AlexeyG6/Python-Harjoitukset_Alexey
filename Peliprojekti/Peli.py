@@ -1,22 +1,22 @@
 
 inventaario = [] #Luodaan tyhjä inventaario
-    
-def nayta_nimi():
+
+def nayta_nimi(): #Funktio, joka printtaa pelaajan nimen
     print("\nPelaajan nimi on:", nimi)
-def nayta_ikä():
+def nayta_ikä(): #Funktio, joka printtaa pelaajan iän
     print("\nPelaajan ikä on:", ikä)
 
-def lisää_esine():
+def lisää_esine(): #Funktio kysyy käyttäjänltä esineen nimi ja lisää sen "inventaario" listaan
     esine = input("Anna esineen nimi: ")
     inventaario.append(esine)
     print(f"{esine} on lisätty inventaarioon.")
 
-def poista_esine(esine):
+def poista_esine(esine): #Funktio saa käyttäjän kirjoitettu esineen nimen parametriaan ja etsii sitä "inventaario"-listalta. Jos sellainen löytyy, niin sitä poistetaan
     if esine in inventaario:
         inventaario.remove(esine)
         print(f"heitit {esine} pois")
 
-def Peli():
+def Peli(): #Funktio kirjoittaa toiminnot, joista käyttäjä valitsee mitä tehdään
     while True: 
         Toiminto = input("Toiminnot: \n1. Lisää esine inventaarioon \n2. Tarkista inventaario \n3. Heitä esine pois \n4. Lopeta \nValitse toiminto: ")
 

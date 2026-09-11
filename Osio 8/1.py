@@ -11,7 +11,7 @@ while True:
     else:
         break
 
-match kuukaus:
+match kuukaus: #Olen C# ohjelmoinnissa tykkäänny case rakenteesta, joka lyhentää koodia if käyttäen vertailen. Joten päätin käyttää sitä tässä tehtävässä.
     case 12 | 1 | 2:
         print("Kuukausi kuuluu vuodenaikaan:", T)
     case 3 | 4 | 5:
