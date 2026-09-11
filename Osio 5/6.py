@@ -1,15 +1,16 @@
 import random
 
-sisäällä = 0
 i = 0
-määrä = int(input("Syötä arvottavien pisteiden määrä: "))
+N = int(input("Syötä arvottavien pisteiden määrä: "))
+n = 0
 
-while i < määrä:
-    x = random.randint(-1, 1)
-    y = random.randint(-1, 1)
+while i < N:
+    x = random.uniform(-1, 1)
+    y = random.uniform(-1, 1)
 
     if x**2 + y**2 < 1:
-        sisäällä += 1
+        n += 1
     i += 1
+pi = 4 * n / N
 
-print(f"Piin likiarvo: {4 * sisäällä / määrä}")
+print(f"Piin likiarvo: {pi}")
