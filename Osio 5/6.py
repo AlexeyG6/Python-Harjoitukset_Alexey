@@ -12,4 +12,4 @@ while i < määrä:
         sisäällä += 1
     i += 1
 
-print(f"Piin arvio: {4 * sisäällä / määrä}")
+print(f"Piin likiarvo: {4 * sisäällä / määrä}")
