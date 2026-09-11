@@ -1,7 +1,6 @@
 import random
 
 määrä = int(input("Syötä arvottavien kuutioiden määrä: "))
-i = 0
 summa = 0
 
 for i in range(määrä):
