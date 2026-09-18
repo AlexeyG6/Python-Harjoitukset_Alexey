@@ -2,18 +2,18 @@ import random
 
 class Hissi:
 
-    def __init__(self):
-        self.kerros = 0
+    def __init__(self, alin_kerros):
+        self.kerros = alin_kerros
 
-    def siirry_kerrokseen(self, kerros):
+    def siirry_kerrokseen(self, hissi, kerros):
         while True:
-            if self.kerros == kerros:
+            if hissi.kerros == kerros:
                 break
             num = random.randint(1,2)
             if num == 1:
-                self.kerros_ylos()
+                Talo.hissit[hissi].kerros_ylos()
             elif num == 2:
-                self.kerros_alas()
+                Talo.hissit[hissi].kerros_alas()
 
 
     def kerros_ylos(self):
@@ -31,26 +31,36 @@ class Talo:
         self.ylin_kerros = ylin
         self.alin_kerros = alin
         self.hissien_maara = hissi_maara
-        num_int = 1
         for hissi in range(self.hissien_maara):
-            num = str(num_int)
-            self.hissit.append(Hissi(num))
+            hissi = Hissi(self.alin_kerros)
+            self.hissit.append(hissi)
 
-    def aja_hissia(self, hissi, kerros):
-        if kerros <= self.ylin_kerros or kerros >= self.alin_kerros:
-            hissi.siirry_kerrokseen(kerros)
+    def aja_hissia(hissi, kerros):
+        if kerros <= Talo.hissit[hissi].ylin_kerros or kerros >= Talo.hissit[hissi].alin_kerros:
+            Hissi.siirry_kerrokseen(hissi, kerros)
         
     
+while True:
+    ylin = int(input("Mikä on ylin kerros: "))
+    alin = int(input("Mikä on alin kerros: "))
+    if ylin > alin:
+        break
+    else:
+        print("ylemmän kerroksen pitää olla alemman korkeamalla!")
 
-ylin = int(input("Mikä on ylin kerros: "))
-alin = int(input("Mikä on alin kerros: "))
 h_maara = int(input("Mikä on hissien määrä: "))
 
 talo = Talo(ylin, alin, h_maara)
 
 while True:
-    mika_hissi = input("Mitä hissiä haluat ajaa (Hissin numero): ")
-    if mika_hissi in talo.hissit:
-        talo.aja_hissia(mika_hissi)
+    mika_hissi = int(input("Mitä hissiä haluat ajaa (Hissin numero 1 - ...): "))
+    mika_hissi -= 1
+    if 0 <= mika_hissi < len(talo.hissit) :
+        while True:
+            kerros = int(input("Hissi on alemmalla kerrosksella. Mihin kerrokseen haluat liikkua: "))
+            if kerros >= alin and kerros <= ylin:
+                break
+            print("Kerros ei löytyny!")
+        Talo.aja_hissia(mika_hissi, kerros)
     else:
         print("Hissiä ei löydetty")
