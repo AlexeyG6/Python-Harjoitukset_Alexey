@@ -36,7 +36,13 @@ class Talo:
         print(f"Ajetaan hissiä {hissi}:")
         self.hissit[hissi].siirry_kerrokseen(kerros)
 
+    def palohälytin(self):
+        print("PALOHÄLYTIN!!!")
+        for i in range(self.hissien_lukumaara):
+            self.aja_hissiä(i, 0)
+
 T = Talo(0, 5, 2)
 
 T.aja_hissiä(1, 5)
 T.aja_hissiä(0, 4)
+T.palohälytin()
