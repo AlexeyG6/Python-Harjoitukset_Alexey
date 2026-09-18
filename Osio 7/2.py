@@ -1,14 +1,12 @@
 
 import random
 
-noppa = int(input("Tahkojen määrä? "))
-
-def HeitaNoppaa():
+def HeitaNoppaa(noppa):
     while True:
         yritys =random.randint(1, noppa)
         print(f"{yritys}")
         if yritys == noppa:
             break
 
-HeitaNoppaa()
-        
+noppa = int(input("Tahkojen määrä? "))
+HeitaNoppaa(noppa)
