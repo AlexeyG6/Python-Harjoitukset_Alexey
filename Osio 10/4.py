@@ -18,9 +18,9 @@ class Kilpailu():
 
     def kilpailu_ohi(self):
         if any(auto.matka >= self.pituus_km for auto in self.auto_lista):
-            return("True")
+            return True
         else:
-            return("False")
+            return False
     
 
 class Auto:
@@ -49,14 +49,11 @@ for i in range (10):
      num_int += 1
 
 K = Kilpailu(autot, "Suuri romuralli", 8000)
-i = 0
-while True:
+s = 0
+while K.kilpailu_ohi() == False:
     K.tunti_kuluu()
-    if K.kilpailu_ohi() == "True":
-        break
-    elif i % 10 == 0:
-        K.tulosta_tilanne()
-        print("-----------------------------------")
-    i += 1
+    K.tulosta_tilanne()
+    print("-----------------------------------")
+    s += 1
 
 K.tulosta_tilanne
