@@ -1,5 +1,19 @@
 
-inventaario = [] #Luodaan tyhjä inventaario
+class Pelaaja:
+    def __init__(self, nimi, lista, huone):
+        self.nimi = nimi
+        self.sijainti = huone
+        self.inventaario = lista
+
+class Huone:
+    def __init__(self, nimi, esine = ""):
+        self.nimi = nimi
+        self.esine = esine
+
+class Esine:
+    def __init__(self, nimi, paino):
+        self.nimi = nimi
+        self.paino = paino
 
 def nayta_nimi(): #Funktio, joka printtaa pelaajan nimen
     print("\nPelaajan nimi on:", nimi)
@@ -17,6 +31,8 @@ def poista_esine(esine): #Funktio saa käyttäjän kirjoitettu esineen nimen par
         print(f"heitit {esine} pois")
 
 def Peli(): #Funktio kirjoittaa toiminnot, joista käyttäjä valitsee mitä tehdään
+
+    Pelaaja(nimi, inventaario, huone)
     while True: 
         Toiminto = input("Toiminnot: \n1. Lisää esine inventaarioon \n2. Tarkista inventaario \n3. Heitä esine pois \n4. Lopeta \nValitse toiminto: ")
 
@@ -29,6 +45,8 @@ def Peli(): #Funktio kirjoittaa toiminnot, joista käyttäjä valitsee mitä teh
             poista_esine(esine)
         elif Toiminto == "4":
             exit()
+
+inventaario = [] #Luodaan tyhjä inventaario
 
 print("OVERDRIVE") #Printataan Pelin nimi
 nimi = input("Anna pelaajan nimi: ") #Kysytään pelaajan nimeä
