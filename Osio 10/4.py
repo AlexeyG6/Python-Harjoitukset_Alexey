@@ -13,8 +13,10 @@ class Kilpailu():
             auto.kulje(1)
 
     def tulosta_tilanne(self):
+        print(f"\n{'Rekisteri':<10} | {'Huippunopeus':<13} | {'Nykyinen nopeus':<16} | {'Matka':<10}")
+        print("-" * 58)
         for auto in self.auto_lista:
-            print(f"Rekkari: {auto.rekkari}, Huippunopeus: {auto.huippu_nopeus}km/h, Nykyinen nopeus: {auto.nopeus}km/h, Matka: {auto.matka}km")
+            print(f"{auto.rekkari:<10} | {auto.huippu_nopeus:<3} km/h       | {auto.nopeus:<3} km/h          | {auto.matka:<6.1f} km")
 
     def kilpailu_ohi(self):
         if any(auto.matka >= self.pituus_km for auto in self.auto_lista):
@@ -49,11 +51,9 @@ for i in range (10):
      num_int += 1
 
 K = Kilpailu(autot, "Suuri romuralli", 8000)
-s = 0
 while K.kilpailu_ohi() == False:
     K.tunti_kuluu()
     K.tulosta_tilanne()
-    print("-----------------------------------")
-    s += 1
+    print("-" * 58)
 
 K.tulosta_tilanne
