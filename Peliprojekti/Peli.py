@@ -1,9 +1,17 @@
 
 class Pelaaja:
-    def __init__(self, nimi, lista, huone):
+    def __init__(self, nimi, lista, huone = 0, huoneet):
         self.nimi = nimi
         self.sijainti = huone
         self.inventaario = lista
+        self.huoneet = huoneet
+
+    def liiku(self, kohde):
+        self.sijainti = kohde
+
+    def keraa_esine(self):
+        esine = huoneet[self.sijainti]
+        lisää_esine(esine)
 
 class Huone:
     def __init__(self, nimi, esine = ""):
@@ -20,30 +28,37 @@ def nayta_nimi(): #Funktio, joka printtaa pelaajan nimen
 def nayta_ikä(): #Funktio, joka printtaa pelaajan iän
     print("\nPelaajan ikä on:", ikä)
 
-def lisää_esine(): #Funktio kysyy käyttäjänltä esineen nimi ja lisää sen "inventaario" listaan
-    esine = input("Anna esineen nimi: ")
-    inventaario.append(esine)
+def lisää_esine(esine): #Funktio lisää esineen "inventaario" listaan
+    Pelaaja.inventaario.append(esine)
     print(f"{esine} on lisätty inventaarioon.")
 
 def poista_esine(esine): #Funktio saa käyttäjän kirjoitettu esineen nimen parametriaan ja etsii sitä "inventaario"-listalta. Jos sellainen löytyy, niin sitä poistetaan
     if esine in inventaario:
-        inventaario.remove(esine)
+        Pelaaja.inventaario.remove(esine)
         print(f"heitit {esine} pois")
 
 def Peli(): #Funktio kirjoittaa toiminnot, joista käyttäjä valitsee mitä tehdään
 
-    Pelaaja(nimi, inventaario, huone)
+    kohde = 0
+    huoneet = []
+    huoneet.append(Huone("metsä","miekka"))
+    huoneet.append("Linnan etuovi")
+    huoneet.append("Linna")
+    Pelaaja(nimi, inventaario, huoneet)
     while True: 
-        Toiminto = input("Toiminnot: \n1. Lisää esine inventaarioon \n2. Tarkista inventaario \n3. Heitä esine pois \n4. Lopeta \nValitse toiminto: ")
+        print(f"Paikka: {huoneet[Pelaaja.huone]}")
+        Toiminto = input("Toiminnot: \n1. Mene eteepäin \n2.Etsi esinettä \n3. Tarkista inventaario \n4. Heitä esine pois \n5. Lopeta \nValitse toiminto: ")
 
         if Toiminto == "1":
-            lisää_esine()
+            kohde += 1
+            Pelaaja.liiku(kohde, huoneet)
         elif Toiminto == "2":
-            print("Inventaario:", inventaario)
-        elif Toiminto == "3":
+            Pelaaja.keraa_esine()
+        elif Toiminto == "3":Pelaaja.inventaario
+        elif Toiminto == "4":
             esine = input("Minkä esineen haluat heittää pois?:")
             poista_esine(esine)
-        elif Toiminto == "4":
+        elif Toiminto == "5":
             exit()
 
 inventaario = [] #Luodaan tyhjä inventaario
