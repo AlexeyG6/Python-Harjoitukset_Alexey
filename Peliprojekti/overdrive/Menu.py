@@ -34,5 +34,5 @@ def Kaynnista():
     print("Kesken siirtymän jotain menee vakavasti pieleen.")
     print("Sähköinen räsähdys täyttää ilman, hälytysvalot välähtävät ja raskas hätäovi iskeytyy kiinni takanasi. \nKuulet radiossasi vain lyhyen huudon ja pimeyden laskeutuessa yhteys katkeaa täysin.")
     print("Kun hälytysvalot syttyvät uudelleen, tajuat olevasi yksin hylätyn aluksen ilmalukossa. \nRadiostasi kuuluu vain statiikkaa, eikä ovi takaisin omaan alukseesi enää akea. Olet täysin omillasi.")
-    print("Peli alkaa...")
+    print("Peli alkaa...\n" + "-" * 18 )
     Peli(nimi) #Kutsutaan Peli funktiota
