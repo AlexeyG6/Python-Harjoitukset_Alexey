@@ -1,4 +1,5 @@
 from .Peli import Peli
+from .Pelaaja import lataa_peli
 
 def nayta_nimi(nimi): #Funktio, joka printtaa pelaajan nimen
     print("\nPelaajan nimi on:", nimi)
@@ -27,7 +28,7 @@ def Kaynnista():
         elif vastaus == "ika": #Kirjataan ikä
             nayta_ikä(ikä)
         elif vastaus == "Aloita": #Peli alkaa
-            print("\nPeli alkaa!")
+            lataa_peli(nimi)
             break
 
     with open("intro.txt", "w") as intro: #Tallennetaan intro teksti tidostoon
@@ -36,19 +37,19 @@ def Kaynnista():
         intro.write("Sähköinen räsähdys täyttää ilman, hälytysvalot välähtävät ja raskas hätäovi iskeytyy kiinni takanasi. \n" )
         intro.write("Kuulet radiossasi vain lyhyen huudon ja pimeyden laskeutuessa yhteys katkeaa täysin.\n" )
         intro.write("Kun hälytysvalot syttyvät uudelleen, tajuat olevasi yksin hylätyn aluksen ilmalukossa. \n" )
-        intro.write("Radiostasi kuuluu vain statiikkaa, eikä ovi takaisin omaan alukseesi enää akea. Olet täysin omillasi.\pPela alkaa...")
+        intro.write("Radiostasi kuuluu vain statiikkaa, eikä ovi takaisin omaan alukseesi enää akea. Olet täysin omillasi.\nPela alkaa...")
 
     with open("ohjeet.txt", "w") as ohjeet: #Tallennetaan tiedostoon ohjeet
         ohjeet.write("Toimit yksin hylätyllä avaruusaluksella. Tavoitteenasi on tutkia alusta, löytää hyödyllisiä esineitä ja päästä etenemään huoneesta toiseen.\n")
-        ohjeet.write("Vinkki: Tutki jokainen huone huolellisesti! Saatat tarvita löytämiäsi esineitä myöhemmin selvitäksesi hengissä.")
+        ohjeet.write("Vinkki: Tutki jokainen huone huolellisesti! Saatat tarvita löytämiäsi esineitä myöhemmin selvitäksesi hengissä.\n")
 
     print("Ohjeet:")
     with open("ohjeet.txt", "r") as ohjeet: #Luetaan ohjeet tiedostosta
-        ohje = ohjeet.read
+        ohje = ohjeet.read()
         print(ohje)
     
     with open("intro.txt", "r") as intro: # luetaan intro teksti tiedistosta
-        teksti = intro.read
+        teksti = intro.read()
         print(teksti)
 
     print("" + "-" * 18 )

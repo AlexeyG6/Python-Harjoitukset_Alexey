@@ -1,4 +1,4 @@
-from .Pelaaja import Pelaaja, poista_esine
+from .Pelaaja import Pelaaja, poista_esine, tallenna_peli 
 from .Huone import Huone
 
 def Peli(nimi): #Pää peli funktio
@@ -9,6 +9,7 @@ def Peli(nimi): #Pää peli funktio
     pelaaja.huoneet.append(Huone("Pääkäytävä", "Ensiapupakkaus")) #Luo huoneen, jonka tallentaa "huoneet" listaan
     pelaaja.huoneet.append(Huone("Konehuone", "Sulake")) #Luo huoneen, jonka tallentaa "huoneet" listaan
     while True: #Pelin silmukka, jossa pyörii toiminnot, joita pelaaja voi käyttää
+        tallenna_peli(nimi)
         print(f"Paikka: {pelaaja.huoneet[pelaaja.sijainti]}") # printataan nykyinen huone
         Toiminto = input("Toiminnot: \n1. Mene eteepäin \n2. Etsi esinettä \n3. Tarkista inventaario \n4. Heitä esine pois \n5. Lopeta \nValitse toiminto: ") #kaikki toiminnot
 
