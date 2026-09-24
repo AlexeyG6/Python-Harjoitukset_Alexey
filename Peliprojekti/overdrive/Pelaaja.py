@@ -58,4 +58,6 @@ def lataa_peli(): #Ladataan pelaajan tidot save kansiosta
         if len(rivit) > 2 and rivit[2].strip():
             inventaario = rivit[2].strip().split(",")
 
+        #PITÄÄ TEHDÄ!!!: poistetaan esine huoneesta jos se ladataan inventaario
+
         return nimi, sijainti, inventaario
