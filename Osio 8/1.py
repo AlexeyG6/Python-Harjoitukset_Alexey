@@ -1,5 +1,3 @@
-from unittest import case
-
 
 vuodenajat = ["talvi", "kevät", "kesä", "syksy"]
 (T,K,KK,S) = vuodenajat
