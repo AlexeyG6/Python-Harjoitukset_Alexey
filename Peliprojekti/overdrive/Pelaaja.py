@@ -1,4 +1,5 @@
 import os
+
 class Pelaaja:
 
     huoneet = [] # Lista kaikista huoneista
@@ -34,22 +35,27 @@ def poista_esine(esine_nimi): #Funktio saa käyttäjän kirjoitettu esineen nime
     print(f"Esinettä {esine_nimi} ei löytynyt inventaariosta.")
 
 def tallenna_peli(pelaaja):
-    with open("save.txt", "w") as tiedosto:
+    with open("save.txt", "w", encoding="utf-8") as tiedosto:
         tiedosto.write(f"{pelaaja.nimi}\n")
-        tiedosto.write(f"{str(pelaaja.sijainti)}")
+        tiedosto.write(f"{str(pelaaja.sijainti)}\n")  # Lisätty \n
         inventaario = ",".join([str(e) for e in Pelaaja.inventaario])
         tiedosto.write(f"{inventaario}\n")
+    print("\n-> Peli tallennettu onnistuneesti!")
 
-def lataa_peli(pelaaja): #Ladataan pelaajan tidot save kansiosta
+def lataa_peli(): #Ladataan pelaajan tidot save kansiosta
     if not os.path.exists("save.txt"):  #Jos tiedosto on tyhjä titoja ei lueta
         print("\n-> Tallennustiedostoa ei löytynyt!")
-        return None, None
+        return None, None, []
 
     with open("save.txt", "r", encoding="utf-8") as tiedosto:
-        nimi = tiedosto.readline().strip()
-        sijainti = int(tiedosto.readline().strip())
-        inventaario = [tiedosto.readline().strip()]
+        rivit = tiedosto.readlines()
+        
+        nimi = rivit[0].strip()
+        sijainti = int(rivit[1].strip())
+        
+        # Luetaan inventaario jos kolmas rivi on olemassa
+        inventaario = []
+        if len(rivit) > 2 and rivit[2].strip():
+            inventaario = rivit[2].strip().split(",")
 
-        pelaaja.nimi = nimi
-        pelaaja.sijainti = sijainti
-        pelaaja.inventaario = inventaario
+        return nimi, sijainti, inventaario

@@ -1,10 +1,12 @@
 from .Pelaaja import Pelaaja, poista_esine, tallenna_peli 
 from .Huone import Huone
 
-def Peli(nimi): #Pää peli funktio
+def Peli(nimi, lataa_sijainti=0, lataa_inventaario=[]): #Pää peli funktio
 
     kohde = 0
-    pelaaja = Pelaaja(nimi) #Luo pelaajan, jolle annetaan nimeksi nimen jonka antoi käyttäjä. pelaajalle voi myös antaa haluessa alku sijainnin
+    pelaaja = Pelaaja(nimi, huone=lataa_sijainti) #Luo pelaajan, jolle annetaan nimeksi nimen jonka antoi käyttäjä. pelaajalle voi myös antaa haluessa alku sijainnin
+    if lataa_inventaario:
+        Pelaaja.inventaario = lataa_inventaario
     pelaaja.huoneet.append(Huone("ilmalukko","taskulamppu", 2)) #Luo huoneen "metsä" ja sille miekka esineen, jonka paino on 2. Huone tallentuu "huoneet" listaan
     pelaaja.huoneet.append(Huone("Pääkäytävä", "Ensiapupakkaus")) #Luo huoneen, jonka tallentaa "huoneet" listaan
     pelaaja.huoneet.append(Huone("Konehuone", "Sulake")) #Luo huoneen, jonka tallentaa "huoneet" listaan

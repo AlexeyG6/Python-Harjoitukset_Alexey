@@ -28,7 +28,9 @@ def Kaynnista():
         elif vastaus == "ika": #Kirjataan ikä
             nayta_ikä(ikä)
         elif vastaus == "Aloita": #Peli alkaa
-            lataa_peli(nimi)
+            nimi, sijainti, inventaario = lataa_peli()
+            if nimi is not None:
+                Peli(nimi, lataa_sijainti=sijainti, lataa_inventaario=inventaario)
             break
 
     with open("intro.txt", "w") as intro: #Tallennetaan intro teksti tidostoon
