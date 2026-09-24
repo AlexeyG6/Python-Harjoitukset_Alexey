@@ -52,5 +52,5 @@ def Kaynnista():
         teksti = intro.read()
         print(f"\033[34m{teksti}\033[0m")
 
-    print("" + "-" * 18 )
+    print("" + "-" * 40 )
     Peli(nimi, lataa_sijainti=sijainti, lataa_inventaario=inventaario) #Kutsutaan Peli funktiota

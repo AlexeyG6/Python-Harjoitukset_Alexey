@@ -20,7 +20,7 @@ class Pelaaja:
             lisaa_esine(esine)  # Kutsutaan lisaa_esine metodia
             nykyinen_huone.esine = None  # Poistetaan esine huoneesta
         else:
-            print("Huoneessa ei ole mitaan poimittavaa.")
+            print("\033[34mHuoneessa ei ole mitaan poimittavaa.\033[0m")
 
 def lisaa_esine(esine): #Funktio lisää esineen "inventaario" listaan
     Pelaaja.inventaario.append(esine)
@@ -30,7 +30,7 @@ def poista_esine(esine_nimi): #Funktio saa käyttäjän kirjoitettu esineen nime
     for esine in Pelaaja.inventaario:
         if str(esine).lower() == esine_nimi.lower():
             Pelaaja.inventaario.remove(esine)
-            print(f"heitit {esine_nimi} pois")
+            print(f"\033[33mheitit {esine_nimi} pois\033[0m")
             return
     print(f"\033[31mEsinettä {esine_nimi} ei löytynyt inventaariosta.\033[0m")
 
