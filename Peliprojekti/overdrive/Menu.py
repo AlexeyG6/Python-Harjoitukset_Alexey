@@ -29,8 +29,6 @@ def Kaynnista():
             nayta_ikä(ikä)
         elif vastaus == "Aloita": #Peli alkaa
             nimi, sijainti, inventaario = lataa_peli()
-            if nimi is not None:
-                Peli(nimi, lataa_sijainti=sijainti, lataa_inventaario=inventaario)
             break
 
     with open("intro.txt", "w") as intro: #Tallennetaan intro teksti tidostoon
@@ -45,14 +43,14 @@ def Kaynnista():
         ohjeet.write("Toimit yksin hylätyllä avaruusaluksella. Tavoitteenasi on tutkia alusta, löytää hyödyllisiä esineitä ja päästä etenemään huoneesta toiseen.\n")
         ohjeet.write("Vinkki: Tutki jokainen huone huolellisesti! Saatat tarvita löytämiäsi esineitä myöhemmin selvitäksesi hengissä.\n")
 
-    print("Ohjeet:")
+    print("\033[32mOhjeet:\033[0m")
     with open("ohjeet.txt", "r") as ohjeet: #Luetaan ohjeet tiedostosta
         ohje = ohjeet.read()
-        print(ohje)
+        print(f"\033[32m{ohje}\033[0m")
     
     with open("intro.txt", "r") as intro: # luetaan intro teksti tiedistosta
         teksti = intro.read()
-        print(teksti)
+        print(f"\033[34m{teksti}\033[0m")
 
     print("" + "-" * 18 )
-    Peli(nimi) #Kutsutaan Peli funktiota
+    Peli(nimi, lataa_sijainti=sijainti, lataa_inventaario=inventaario) #Kutsutaan Peli funktiota

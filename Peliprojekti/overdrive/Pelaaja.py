@@ -24,7 +24,7 @@ class Pelaaja:
 
 def lisaa_esine(esine): #Funktio lisää esineen "inventaario" listaan
     Pelaaja.inventaario.append(esine)
-    print(f"{esine} on lisätty inventaarioon.")
+    print(f"\033[33m{esine} on lisätty inventaarioon.\033[0m")
 
 def poista_esine(esine_nimi): #Funktio saa käyttäjän kirjoitettu esineen nimen parametriaan ja etsii sitä "inventaario"-listalta. Jos sellainen löytyy, niin sitä poistetaan
     for esine in Pelaaja.inventaario:
@@ -32,7 +32,7 @@ def poista_esine(esine_nimi): #Funktio saa käyttäjän kirjoitettu esineen nime
             Pelaaja.inventaario.remove(esine)
             print(f"heitit {esine_nimi} pois")
             return
-    print(f"Esinettä {esine_nimi} ei löytynyt inventaariosta.")
+    print(f"\033[31mEsinettä {esine_nimi} ei löytynyt inventaariosta.\033[0m")
 
 def tallenna_peli(pelaaja):
     with open("save.txt", "w", encoding="utf-8") as tiedosto:
@@ -40,11 +40,11 @@ def tallenna_peli(pelaaja):
         tiedosto.write(f"{str(pelaaja.sijainti)}\n")  # Lisätty \n
         inventaario = ",".join([str(e) for e in Pelaaja.inventaario])
         tiedosto.write(f"{inventaario}\n")
-    print("\n-> Peli tallennettu onnistuneesti!")
+    print("\033[32m\n-> Peli tallennettu onnistuneesti!\033[0m")
 
 def lataa_peli(): #Ladataan pelaajan tidot save kansiosta
     if not os.path.exists("save.txt"):  #Jos tiedosto on tyhjä titoja ei lueta
-        print("\n-> Tallennustiedostoa ei löytynyt!")
+        print("\033[31m\n-> Tallennustiedostoa ei löytynyt!\033[0m")
         return None, None, []
 
     with open("save.txt", "r", encoding="utf-8") as tiedosto:
