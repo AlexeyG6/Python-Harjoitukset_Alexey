@@ -1,5 +1,4 @@
-nimet = {""}
-nimet.remove("")
+nimet = {}
 while True:
     nimi = input("Anna pelaajan nimi: ") 
     if nimi == "":
