@@ -1,4 +1,4 @@
-from .Peli import Peli
+from Peli import Peli
 
 def nayta_nimi(nimi): #Funktio, joka printtaa pelaajan nimen
     print("\nPelaajan nimi on:", nimi)
@@ -30,9 +30,17 @@ def Kaynnista():
             print("\nPeli alkaa!")
             break
 
-    print("Olet osa astronauttiryhmää, joka havaitsi tutkassa tuntemattoman, hylätyn avaruusaluksen. Päätitte siirtyä tutkimaan sitä.")
-    print("Kesken siirtymän jotain menee vakavasti pieleen.")
-    print("Sähköinen räsähdys täyttää ilman, hälytysvalot välähtävät ja raskas hätäovi iskeytyy kiinni takanasi. \nKuulet radiossasi vain lyhyen huudon ja pimeyden laskeutuessa yhteys katkeaa täysin.")
-    print("Kun hälytysvalot syttyvät uudelleen, tajuat olevasi yksin hylätyn aluksen ilmalukossa. \nRadiostasi kuuluu vain statiikkaa, eikä ovi takaisin omaan alukseesi enää akea. Olet täysin omillasi.")
-    print("Peli alkaa...\n" + "-" * 18 )
+    with open("intro.txt" "w") as intro: #Tallennetaan intro teksti tidostoon
+        intro.write("Olet osa astronauttiryhmää, joka havaitsi tutkassa tuntemattoman, hylätyn avaruusaluksen. Päätitte siirtyä tutkimaan sitä.\n")
+        intro.write("Kesken siirtymän jotain menee vakavasti pieleen.\n" )
+        intro.write("Sähköinen räsähdys täyttää ilman, hälytysvalot välähtävät ja raskas hätäovi iskeytyy kiinni takanasi. \n" )
+        intro.write("Kuulet radiossasi vain lyhyen huudon ja pimeyden laskeutuessa yhteys katkeaa täysin.\n" )
+        intro.write("Kun hälytysvalot syttyvät uudelleen, tajuat olevasi yksin hylätyn aluksen ilmalukossa. \n" )
+        intro.write("Radiostasi kuuluu vain statiikkaa, eikä ovi takaisin omaan alukseesi enää akea. Olet täysin omillasi.\pPela alkaa...")
+
+    with open("intro.txt" "r"): # luetaan intro teksti tiedistosta
+        teksti = intro.read
+        print(teksti)
+
+    print("" + "-" * 18 )
     Peli(nimi) #Kutsutaan Peli funktiota
