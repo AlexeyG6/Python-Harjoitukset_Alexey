@@ -42,21 +42,26 @@ def tallenna_peli(pelaaja):
         tiedosto.write(f"{inventaario}\n")
     print("\033[32m\n-> Peli tallennettu onnistuneesti!\033[0m")
 
-def lataa_peli(): #Ladataan pelaajan tidot save kansiosta
+def lataa_peli(ekanimi): #Ladataan pelaajan tidot save kansiosta
     if not os.path.exists("save.txt"):  #Jos tiedosto on tyhjä titoja ei lueta
         print("\033[31m\n-> Tallennustiedostoa ei löytynyt!\033[0m")
         return None, None, []
 
     with open("save.txt", "r", encoding="utf-8") as tiedosto:
         rivit = tiedosto.readlines()
+
         
         nimi = rivit[0].strip()
-        sijainti = int(rivit[1].strip())
+        if nimi == ekanimi:
+            sijainti = int(rivit[1].strip())
         
-        # Luetaan inventaario jos kolmas rivi on olemassa
-        inventaario = []
-        if len(rivit) > 2 and rivit[2].strip():
-            inventaario = rivit[2].strip().split(",")
+            # Luetaan inventaario jos kolmas rivi on olemassa
+            inventaario = []
+            if len(rivit) > 2 and rivit[2].strip():
+                inventaario = rivit[2].strip().split(",")
+        else:
+            sijainti = 0
+            inventaario = []
 
         #PITÄÄ TEHDÄ!!!: poistetaan esine huoneesta jos se ladataan inventaario
 
