@@ -1,12 +1,20 @@
 from .Pelaaja import Pelaaja, poista_esine, tallenna_peli 
 from .Huone import Huone
-from .Hirviö import tapahtuma
 
 def Pimea_huone(pelaaja): #Funktio, joka tarkistaa onko pelaajalla taskulamppu inventaariossa
     for esine in pelaaja.inventaario:
         if esine.nimi == "taskulamppu":
             return True
     return False
+
+def hirviö(pelaaja):
+    print("\033[31mHirviö hyökkää sinua kohti! Sinulla ei ole taskulamppua, joten et näe sitä ja se syö sinut!\033[0m")
+    for esine in pelaaja.inventaario:
+        if esine.nimi == "Ensiapupakkaus":
+            print("\033[32mSinulla on ensiapupakkaus, jolla voit pelastautua hirviön hyökkäykseltä!\033[0m")
+            pelaaja.inventaario.remove(esine)
+            return
+    exit()
 
 def Peli(nimi, lataa_sijainti=0, lataa_inventaario=[]): #Pää peli funktio
 
@@ -33,7 +41,7 @@ def Peli(nimi, lataa_sijainti=0, lataa_inventaario=[]): #Pää peli funktio
         if Toiminto == "1":
             if pelaaja.sijainti == 3:
                 if Pimea_huone(pelaaja) == False:
-                    tapahtuma() #Jos pelaajalla ei ole taskulamppua, niin hirviö tapahtuma käynnistyy
+                    hirviö(pelaaja) #Jos pelaajalla ei ole taskulamppua, niin hirviö tapahtuma käynnistyy
                     print("\033[31mHuone on liian pimeä, et pääse etenemään ilman taskulamppua\033[0m")
                 else:
                     kohde += 1
@@ -75,3 +83,4 @@ def Peli(nimi, lataa_sijainti=0, lataa_inventaario=[]): #Pää peli funktio
             poista_esine(esine) #poistetaan esine inventaariosta "poista_esine" funktiolla
         elif Toiminto == "6":
             exit() #Lopetataan pelin
+        siirrot += 1 #lisätään siirtojen määrää yhdellä

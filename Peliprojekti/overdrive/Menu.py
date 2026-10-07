@@ -31,18 +31,6 @@ def Kaynnista():
             nimi, sijainti, inventaario = lataa_peli(nimi)
             break
 
-    with open("intro.txt", "w") as intro: #Tallennetaan intro teksti tidostoon
-        intro.write("Olet osa astronauttiryhmää, joka havaitsi tutkassa tuntemattoman, hylätyn avaruusaluksen. Päätitte siirtyä tutkimaan sitä.\n")
-        intro.write("Kesken siirtymän jotain menee vakavasti pieleen.\n" )
-        intro.write("Sähköinen räsähdys täyttää ilman, hälytysvalot välähtävät ja raskas hätäovi iskeytyy kiinni takanasi. \n" )
-        intro.write("Kuulet radiossasi vain lyhyen huudon ja pimeyden laskeutuessa yhteys katkeaa täysin.\n" )
-        intro.write("Kun hälytysvalot syttyvät uudelleen, tajuat olevasi yksin hylätyn aluksen ilmalukossa. \n" )
-        intro.write("Radiostasi kuuluu vain statiikkaa, eikä ovi takaisin omaan alukseesi enää akea. Olet täysin omillasi.\nPela alkaa...")
-
-    with open("ohjeet.txt", "w") as ohjeet: #Tallennetaan tiedostoon ohjeet
-        ohjeet.write("Toimit yksin hylätyllä avaruusaluksella. Tavoitteenasi on tutkia alusta, löytää hyödyllisiä esineitä ja päästä etenemään huoneesta toiseen.\n")
-        ohjeet.write("Vinkki: Tutki jokainen huone huolellisesti! Saatat tarvita löytämiäsi esineitä myöhemmin selvitäksesi hengissä.\n")
-
     print("\033[32mOhjeet:\033[0m")
     with open("ohjeet.txt", "r") as ohjeet: #Luetaan ohjeet tiedostosta
         ohje = ohjeet.read()

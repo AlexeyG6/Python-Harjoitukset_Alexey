@@ -1,3 +1,3 @@
 None
 5
-taskulamppu,Ensiapupakkaus,Sulake
+taskulamppu,Ensiapupakkaus,Sulake,,,Hätäuloskäynti
