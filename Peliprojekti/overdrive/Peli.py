@@ -1,5 +1,6 @@
 from .Pelaaja import Pelaaja, poista_esine, tallenna_peli 
 from .Huone import Huone
+from .Hirviö import tapahtuma
 
 def Pimea_huone(pelaaja): #Funktio, joka tarkistaa onko pelaajalla taskulamppu inventaariossa
     for esine in pelaaja.inventaario:
@@ -9,6 +10,7 @@ def Pimea_huone(pelaaja): #Funktio, joka tarkistaa onko pelaajalla taskulamppu i
 
 def Peli(nimi, lataa_sijainti=0, lataa_inventaario=[]): #Pää peli funktio
 
+    siirrot = 0
     kohde = 0
     pelaaja = Pelaaja(nimi, huone=lataa_sijainti) #Luo pelaajan, jolle annetaan nimeksi nimen jonka antoi käyttäjä. pelaajalle voi myös antaa haluessa alku sijainnin
     if lataa_inventaario:
@@ -25,9 +27,13 @@ def Peli(nimi, lataa_sijainti=0, lataa_inventaario=[]): #Pää peli funktio
         print(f"Paikka: {pelaaja.huoneet[pelaaja.sijainti]}") # printataan nykyinen huone
         Toiminto = input("Toiminnot: \n1. Mene eteepäin \n2. Mene taaksepäin \n3. Etsi esinettä \n4. Tarkista inventaario \n5. Heitä esine pois \n6. Lopeta \nValitse toiminto: ") #kaikki toiminnot
 
+        if siirrot >= 20: #Jos pelaaja on liikkunut 20 kertaa, niin peli loppuu
+            print("\033[31mOlet liikkunut liian monta kertaa, happi loppu, et selvinnyt hengissä!\033[0m")
+            exit()
         if Toiminto == "1":
             if pelaaja.sijainti == 3:
                 if Pimea_huone(pelaaja) == False:
+                    tapahtuma() #Jos pelaajalla ei ole taskulamppua, niin hirviö tapahtuma käynnistyy
                     print("\033[31mHuone on liian pimeä, et pääse etenemään ilman taskulamppua\033[0m")
                 else:
                     kohde += 1
@@ -44,7 +50,10 @@ def Peli(nimi, lataa_sijainti=0, lataa_inventaario=[]): #Pää peli funktio
                     else:
                         print("\033[31mSinulla ei ole sulaketta, et pääse etenemään\033[0m")
             elif pelaaja.sijainti == 5:
-                print("\033[32mOlet päässyt hätäuloskäynnille ja pelastunut!\033[0m")
+                print("\033[32m\033[0m")
+                with open("loppu.txt", "r") as intro: # luetaan loppu teksti tiedistosta
+                        teksti = intro.read()
+                        print(f"\033[34m{teksti}\033[0m")
                 exit()
             elif kohde + 1 < len(pelaaja.huoneet):
                 kohde += 1

@@ -1,4 +1,5 @@
 import os
+from .Peli import siirrot
 
 class Pelaaja:
 
@@ -11,6 +12,7 @@ class Pelaaja:
 
     def liiku(self, kohde): # liikuttaa pelaajan sijaintia eteeenpäin saadun parametriaan kohti
         self.sijainti = kohde
+        siirrot += 1
 
     def keraa_esine(self): # etsii esineen huoneesta ja lisää kutsuu lisää_esine funktiota
         nykyinen_huone = self.huoneet[self.sijainti]
